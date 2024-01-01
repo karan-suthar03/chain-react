@@ -1,5 +1,5 @@
 let Pcolors = [[255,0,0],[0,0,255],[0,255,0],[2555,255,255],[125,125,125]];
-let nPlayers = 3;
+let nPlayers = 2;
 let rows = 12,cols = 7;
 let size = 43;
 let matrix = [];
