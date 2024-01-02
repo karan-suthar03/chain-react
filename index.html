@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chain Reaction Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="canvas-Container" id="canvas-Container">
+    </div>
+    <div class="main-grid">
+        <div class="container">
+            <h2>Chain Reaction Game</h2>
+            <label for="players">Select number of players:</label>
+            <select name="players" id="players">
+                <option value="2">2 players</option>
+                <option value="3">3 players</option>
+                <option value="4">4 players</option>
+                <option value="5">5 players</option>
+            </select>
+
+            <label for="gridSize">Select grid size:</label>
+            <select name="gridSize" id="gridSize">
+                <option value="10">10x6</option>
+                <option value="12">12x7</option>
+                <option value="15">15x9</option>
+                <option value="20">20x12</option>
+                <option value="30">30x18</option>
+            </select>
+            <button id="StartButton" >Start Game</button>
+        </div>
+    </div>
+</body>
+<script src="actual game/p5.min.js"></script>
+<script src="script.js"></script>
+<script src="UI.js"></script>
+</html>
