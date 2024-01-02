@@ -48,7 +48,7 @@ function draw(){
         while (true && k<50) {
             if(RemPlayers[(player+1)%(nPlayers)] == 1){
                 player = (player+1)%(nPlayers);
-                localStorage.setItem('gameData',encodeURIComponent(JSON.stringify({players:nPlayers,player:player,grid:rows,matrix:matrix,RemPlayers:RemPlayers})));
+                localStorage.setItem('gameData',encodeURIComponent(JSON.stringify({players:nPlayers,player:player,played:played,grid:rows,matrix:matrix,RemPlayers:RemPlayers})));
                 break;
             }else{
                 player = (player+1)%(nPlayers);
