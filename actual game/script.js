@@ -16,10 +16,10 @@ function setup(){
 function drawGrid(){
     stroke(Pcolors[player][0],Pcolors[player][1],Pcolors[player][2]);
     for(let i = 0;i<=cols;i++){
-        line(50+(i*size),50,50+(i*size),(50+(size*rows)));
+        line(margin2+(i*size),margin,margin2+(i*size),(margin+(size*rows)));
     }
     for(let i = 0;i<=rows;i++){
-        line(50,50+(i*size),50+(size*cols),50+(i*size));
+        line(margin2,margin+(i*size),margin2+(size*cols),margin+(i*size));
     }
 }
 
@@ -48,7 +48,7 @@ function draw(){
         while (true && k<50) {
             if(RemPlayers[(player+1)%(nPlayers)] == 1){
                 player = (player+1)%(nPlayers);
-                localStorage.setItem('gameData',encodeURIComponent(JSON.stringify({players:nPlayers,player:player,played:played,grid:rows,matrix:matrix,RemPlayers:RemPlayers})));
+                localStorage.setItem('gameData',encodeURIComponent(JSON.stringify({players:nPlayers,played:played,player:player,grid:rows,matrix:matrix,RemPlayers:RemPlayers})));
                 break;
             }else{
                 player = (player+1)%(nPlayers);

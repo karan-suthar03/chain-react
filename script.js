@@ -1,9 +1,9 @@
 let selectw = document.getElementById('gridSize');
 let rows = parseInt(selectw.value),cols = parseInt(rows*0.6);
-let size = 500/rows;
+let size = (600-margin*2)/rows;
 selectw.addEventListener("change", function() {
 	rows = parseInt(selectw.value),cols = parseInt(rows*0.6);
-	size = 500/rows;
+	size = (600-margin*2)/rows;
 	//setup();
 });
 
@@ -19,9 +19,9 @@ selectw.addEventListener("change", function() {
 // function drawGrid(){
 // 	stroke(255,0,0);
 // 	for(let i = 0;i<=cols;i++){
-// 		line(50+(i*size),50,50+(i*size),(50+(size*rows)));
+// 		line(margin+(i*size),margin,margin+(i*size),(margin+(size*rows)));
 // 	}
 // 	for(let i = 0;i<=rows;i++){
-// 		line(50,50+(i*size),50+(size*cols),50+(i*size));
+// 		line(margin,margin+(i*size),margin+(size*cols),margin+(i*size));
 // 	}
 // }

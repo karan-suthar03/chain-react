@@ -1,10 +1,12 @@
 let data = JSON.parse(decodeURIComponent(localStorage.getItem('gameData')));
 
 
-let Pcolors = [[255,0,0],[0,0,255],[0,255,0],[2555,255,255],[125,125,125]];
+let Pcolors = [[255,0,0],[0,0,255],[0,255,0],[255,255,255],[125,125,125]];
 let nPlayers = parseInt(data.players);
 let rows = parseInt(data.grid),cols = parseInt(rows*0.6);
-let size = 500/rows;
+let margin = 0;
+let size = (600-(margin*2))/rows;
+let margin2 = (400-(size*cols))/2;
 let matrix = data.matrix,dBalls = [],duplicate = [],moves = [];
 let isPressed = false;
 let player = parseInt(data.player);

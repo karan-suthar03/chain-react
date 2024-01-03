@@ -1,6 +1,6 @@
 class Move {
     constructor(i, j, p, direction) {
-        this.position = [size/2 + 50 + (i * size), size/2 + 50 + (j * size)];
+        this.position = [size/2 + margin2 + (i * size), size/2 + margin + (j * size)];
         this.i = i;
         this.j = j;
         this.p = p;
@@ -21,7 +21,7 @@ class Move {
     }
 
     moveUp() {
-        if (size/2 + 50 + (this.j * size) - this.position[1] > size) {
+        if (size/2 + margin + (this.j * size) - this.position[1] > size) {
             return true;
         } else {
             this.position[1] -= size/25;
@@ -30,7 +30,7 @@ class Move {
     }
 
     moveDown() {
-        if (size/2 + 50 + (this.j * size) - this.position[1] < -size) {
+        if (size/2 + margin + (this.j * size) - this.position[1] < -size) {
             return true;
         } else {
             this.position[1] += size/25;
@@ -39,7 +39,7 @@ class Move {
     }
 
     moveLeft() {
-        if (size/2 + 50 + (this.i * size) - this.position[0] > size) {
+        if (size/2 + margin2 + (this.i * size) - this.position[0] > size) {
             return true;
         } else {
             this.position[0] -= size/25;
@@ -48,7 +48,7 @@ class Move {
     }
 
     moveRight() {
-        if (size/2 + 50 + (this.i * size) - this.position[0] < -size) {
+        if (size/2 + margin2 + (this.i * size) - this.position[0] < -size) {
             return true;
         } else {
             this.position[0] += size/25;

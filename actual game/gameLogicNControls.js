@@ -63,8 +63,8 @@ function check(){
 
 function mousePressed() {
     if (!isPressed && !isok && !isRun) {
-        let i = parseInt((mouseX - 50) / size);
-        let j = parseInt((mouseY - 50) / size);
+        let i = parseInt((mouseX - margin2) / size);
+        let j = parseInt((mouseY - margin) / size);
         
         if ((i < cols && i >= 0) && (j < rows && j >= 0)) {
             if(matrix[i][j].player == player || matrix[i][j].balls == 0){
@@ -102,14 +102,14 @@ function updateMove(){
 
 function whoWon(){
     if(played > nPlayers){
-        let played = 0;
+        let playeds = 0;
         for(p = 0;p<nPlayers;p++){
             let stop = false
             for(i = 0;i<matrix.length;i++){
                 for(j = 0;j<matrix[i].length;j++){
                     if(p == matrix[i][j].player){
                         stop = true;
-                        played++;
+                        playeds++;
                         break;
                     }
                 }
@@ -121,7 +121,7 @@ function whoWon(){
                 RemPlayers[p] = 0;
             }
         }
-        if(played == 1){
+        if(playeds == 1){
             for(let i = 0;i<nPlayers;i++){
                 if(RemPlayers[i] == 1){
                     window.location.href = '../index.html';

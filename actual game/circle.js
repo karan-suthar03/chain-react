@@ -17,12 +17,12 @@ class Gola{
     }
     one(p){
         fill(Pcolors[p][0],Pcolors[p][1],Pcolors[p][2]);
-        circle(random()*size/30+size/2+50+(this.i*size),random()*size/30+size/2+50+(this.j*size),size/2);
+        circle(random()*size/30+size/2+margin2+(this.i*size),random()*size/30+size/2+margin+(this.j*size),size/2);
     }
     two(p){
         fill(Pcolors[p][0],Pcolors[p][1],Pcolors[p][2]);
         push();
-        translate(size/2+50+(this.i*size), size/2+50+(this.j*size));
+        translate(size/2+margin2+(this.i*size), size/2+margin+(this.j*size));
         rotate(this.init = this.init+0.05);
         circle(random()*size/20,random()*size/20,size/2);
         circle(random()*size/20,random()*size/20+size*4/15,size/2);
@@ -31,7 +31,7 @@ class Gola{
     three(p){
         fill(Pcolors[p][0],Pcolors[p][1],Pcolors[p][2]);
         push();
-        translate(size/2+50+(this.i*size), size/2+50+(this.j*size));
+        translate(size/2+margin2+(this.i*size), size/2+margin+(this.j*size));
         rotate(this.init = this.init+0.05);
         circle(random()*size/15,random()*size/15,size/2);
         circle(random()*size/15,random()*size/15+size*4/15,size/2);
