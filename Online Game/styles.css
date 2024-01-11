@@ -1,6 +1,6 @@
 body{
     display: grid;
-    grid-template-columns: 0fr 1fr;
+    grid-template-columns: 0fr 0fr 1fr;
     font-family: Arial, sans-serif;
     margin: 0px;
 }
@@ -10,6 +10,7 @@ body{
     align-items: center;
     background-color: #f2f2f2;
     height: 100vh;
+    box-shadow: inset 0px 0px 10px rgb(0,0,0,0.4);
 }
 .main{
     background-color: white;
@@ -18,9 +19,9 @@ body{
     box-shadow: 0px 0px 10px rgb(0,0,0,0.2);
     border-radius: 10px;
 }
-.select{
+select{
     display: block;
-    width: 100%;
+    width: 200px;
     padding: 10px ;
     margin-top: 10px;
     margin-bottom: 25px;
@@ -38,7 +39,7 @@ label{
     display: block;
     font-size: 16px;
 }
-button{
+.startB{
     font-size: large;
     color: white;
     border: 0px;
@@ -49,8 +50,7 @@ button{
     transition: all 0.5s;
     box-shadow: 0px 0px 10px rgb(0,0,0,0.4);
 }
-button:hover{
-    
+.startB:hover{
     box-shadow: 0px 0px 50px rgb(255,255,255,0);
 }
 .startB{
@@ -60,71 +60,94 @@ button:hover{
 .startB:hover{
     background-color: #429c43;
 }
-.Gcanvas{
-    height: 100%;
-}
-.onlineB{
-    background-color: #5b4caf;
-}
-.onlineB:hover{
-    background-color: #4d429c;
-}
-.cB{
-    background-color: #5b4caf;
-    margin-left: 20px;
-}
-.cB:hover{
-    background-color: #4d429c;
-}
-.border{
-    width: 200px;
-}
-.onDiv{
-    display: inline;
-    position: sticky;
-}
-.onlineOP{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    position:absolute;
-    top:30px;
-    right:150px;
-    width: 0px;
-    height: 0px;
-    grid-gap: 11px;
-    overflow: hidden;
-    /* bottom: 40px; */
-    text-align: center;
-    background-color: transparent;
-    backdrop-filter: blur(4px);
-    padding: 0px;
-    border-radius: 12px;
-    box-shadow: 0px 0px 10px rgb(0,0,0,0.5);
+.startB.disabled{
+    font-size: large;
+    color: white;
+    border: 0px;
+    width: max-content;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor:pointer;
     transition: all 0.5s;
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.4);
+    background-color: #424642;
 }
-.onlineOP.showIt{
-    top:40px;
-    right:-70px;
-    width: 310px;
-    height: 50px;
+.Gcanvas{
+    height: 100vh;
+}
+.players{
+    width: max-content;
+    padding: 20px;
+}
+.playerC{
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.4);
+    height: fit-content;
+    width: 87px;
+    height: 87px;
+    border-radius: 20%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.color{
+    position: sticky;
     padding: 10px;
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.4);
+    border-radius: 20%;
+    margin: 0px 10px;
+    cursor: pointer;
+    transition: all 0.5s;
+    margin-bottom: 5px;
+    background-color: white;
+    border: 0px;
+    height: 55px;
 }
-.CR,
-.JR{
-    display: inline;
-    background-color: #4caf50;
+.color:hover{
+    box-shadow: 0px 0px 50px rgb(255,255,255,0);
 }
-.CR:hover,
-.JR:hover{
-    background-color: #429c43;
+.color.red{
+    background-color: red;
 }
-.pic{
-    filter: drop-shadow(0px 0px 10px blue);
-    height: auto;
-    width: 300px;
-    border-radius: 40px 40px 20px 20px;
+.color.green{
+    background-color: rgb(0, 255, 0);
 }
-.createMenu{
+.color.blue{
+    background-color: blue;
+}
+.color.white{
+    background-color: white;
+}
+.color.pink{
+    background-color: rgb(255, 125, 125);
+}
+.circle{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+.Red {
+    background-color: red;
+}
+.Blue {
+    background-color: blue;
+}
+.Green {
+    background-color: rgb(0,255,0);
+}
+.White {
+    background-color: white;
+}
+.Pink{
+    background-color: rgb(255, 125, 125);
+}
+.playerN{
+    margin-bottom: 10px;
+}
+.joinMenu{
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -139,13 +162,21 @@ button:hover{
     backdrop-filter: blur(0px);
     transition: all 0.5s;
 }
-.createMenu.showIt{
+.joinMenu.showIt{
     backdrop-filter: blur(4px);
     width: 100%;
     height: 100%;
     top: 0%;
     opacity: 100%;
     left: 0%;
+}
+.onMain{
+    background-color: white;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0px 0px 200px rgb(0,0,0,1);
+    border-radius: 10px;
+    transition: all 1s;
 }
 .nameIn{
     cursor: text;
@@ -162,55 +193,6 @@ button:hover{
 }
 .nameIn:hover{
     box-shadow: 0px 0px 4px rgb(0,0,0,0.2);
-}
-.color{
-    position: sticky;
-    padding: 10px;
-    box-shadow: 0px 0px 10px rgb(0,0,0,0.4);
-    border-radius: 20%;
-    margin: 0px 10px;
-    cursor: pointer;
-    transition: all 0.5s;
-    margin-bottom: 5px;
-    background-color: white;
-    height: 55px;
-}
-.color:hover{
-    box-shadow: 0px 0px 50px rgb(255,255,255,0);
-}
-.circle{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 2px solid black;
-}
-
-.Red .circle{
-    background-color: red;
-}
-.Blue .circle{
-    background-color: blue;
-}
-.Green .circle{
-    background-color: rgb(0,255,0);
-}
-.White .circle{
-    background-color: white;
-}
-.Pink .circle{
-    background-color: rgb(255, 125, 125);
-}
-
-.colorS{
-    display: inline;
-}
-.colorR{
-    margin-top: -10px;
-    display: flex;
-    position: sticky;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 15px;
 }
 .listColors{
     position: absolute;
@@ -236,6 +218,14 @@ button:hover{
     box-shadow: 0px 0px 10px rgb(0,0,0,0.4);
     backdrop-filter: blur(4px);
 }
+.colorR{
+    margin-top: -10px;
+    display: flex;
+    position: sticky;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
 @keyframes shake {
     0%, 100% {
       transform: translateX(0);
@@ -251,33 +241,16 @@ button:hover{
     box-shadow: 0px 0px 50px rgb(255,0,0,1);
     animation: shake 1s ease-in-out;
 }
-.onMain{
-    background-color: white;
-    text-align: center;
-    padding: 20px;
-    box-shadow: 0px 0px 200px rgb(0,0,0,1);
-    border-radius: 10px;
-    transition: all 1s;
-}.joinMenu{
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 50%;
-    left: 50%;
-    opacity: 0%;
-    position: absolute;
-    background-color: rgb(0,0,0,0);
-    width: 0%;
-    height: 0%;
-    backdrop-filter: blur(0px);
+.colors{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: black solid 1px;
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.4);
     transition: all 0.5s;
+    margin-top: 17px;
+    margin-bottom: 5px;
 }
-.joinMenu.showIt{
-    backdrop-filter: blur(4px);
-    width: 100%;
-    height: 100%;
-    top: 0%;
-    opacity: 100%;
-    left: 0%;
+.readyyy{
+    background-color: #4caf50;
 }

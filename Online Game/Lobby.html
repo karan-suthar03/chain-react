@@ -1,0 +1,89 @@
+<html>
+
+<head>
+    <script src="Main/p5.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+    <script src="Main/firbase.init.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="CanvasContainer" id="CanvasContainer">
+    </div>
+    <div class="players" id="players">
+        <div class="playerC">
+            <div class="colors"></div>
+            <div class="playerN">name</div>
+        </div>
+    </div>
+    <div class="menuSection">
+        <div class="main">
+            <h1 id="roomCode">Room Code</h1>
+            <label>Select Size Of Grid</label>
+            <select id="gridSize">
+                <option value="10">10x6</option>
+                <option value="20">20x12</option>
+                <option value="30">30x18</option>
+                <option value="40">40x24</option>
+                <option value="50">50x30</option>
+            </select>
+            <button class="startB" onclick="ready()"  id="ready1">Ready</button>
+        </div>
+    </div>
+    <div class="joinMenu" id="joinMenu">
+        <div class="onMain">
+            <h1>Create Game</h1>
+            <label>Enter Your Name:</label>
+            <input type="text" class="nameIn" id="name" oninput="filterInput()" maxlength="7">
+            <div class="colorR">
+                <label >Select Your Color:</label>
+                <button class="color" id="colorB">
+                    <div class="circle Red" id="now"></div>
+                </button>
+                <div class="listColors" id="listColors">
+                    <button class="color" onclick='setcolor("Red")'>
+                        <div class="circle Red"></div>
+                    </button>
+                    <button class="color" onclick='setcolor("Blue")'>
+                        <div class="circle Blue"></div>
+                    </button>
+                    <button class="color" onclick='setcolor("Green")'>
+                        <div class="circle Green"></div>
+                    </button>
+                    <button class="color" onclick='setcolor("White")'>
+                        <div class="circle White"></div>
+                    </button>
+                    <button class="color" onclick='setcolor("Pink")'>
+                        <div class="circle Pink"></div>
+                    </button>
+                </div>
+            </div>
+            <button class="JoinB startB" onclick="JoinB()">Start Game</button>
+        </div>
+    </div>
+
+</body>
+<script>
+            document.body.addEventListener('click', function(event) {
+            if(event.target.classList.contains('joinMenu')){
+                if(document.getElementById('listColors').classList.contains('showIt')){
+                    document.getElementById('listColors').classList.remove('showIt')
+                }
+            }
+            if(event.target.classList.contains('color') || event.target.classList.contains('circle')){
+                document.getElementById('listColors').classList.toggle('showIt');
+            }
+            if(event.target.classList.contains('JR')){
+                document.getElementById('joinMenu').classList.add('showIt');
+            }
+            if(event.target.classList.contains('joinMenu')){
+                document.getElementById('joinMenu').classList.remove('showIt');
+            }
+        });
+</script>
+<script src="script.js"></script>
+<script src="UI.js"></script>
+
+</html>

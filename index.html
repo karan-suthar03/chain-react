@@ -1,38 +1,122 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-    <title>Chain Reaction Game</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="canvas-Container" id="canvas-Container">
-    </div>
-    <div class="main-grid">
-        <div class="container">
-            <h2>Chain Reaction Game</h2>
-            <label for="players">Select number of players:</label>
-            <select name="players" id="players">
-                <option value="2">2 players</option>
-                <option value="3">3 players</option>
-                <option value="4">4 players</option>
-                <option value="5">5 players</option>
-            </select>
-
-            <label for="gridSize">Select grid size:</label>
-            <select name="gridSize" id="gridSize">
-                <option value="10">10x6</option>
-                <option value="12">12x7</option>
-                <option value="15">15x9</option>
-                <option value="20">20x12</option>
-                <option value="30">30x18</option>
-            </select>
-            <button id="StartButton" >Start Game</button>
+<html>
+    <head>
+        <script src="Online Game/Main/p5.min.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>    
+        <script src="Online Game/Main/firbase.init.js"></script>
+    </head>
+    <body>
+        <div class="CanvasContainer" id="CanvasContainer">
         </div>
-    </div>
-</body>
-<script src="actual game/p5.min.js"></script>
-<script src="script.js"></script>
-<script src="UI.js"></script>
+        <div class="menuSection">
+            <div class="main">
+                <div class="img-container">
+                    <img class="pic" src="logo.png" alt="">
+                </div>
+                <div>
+                    <label>Select Number Of Players</label>
+                    <select class="select" id="players">
+                        <option value="2">Two Players</option>
+                        <option value="3">three Players</option>
+                        <option value="4">four Players</option>
+                        <option value="5">five Players</option>
+                        <option value="6">six Players</option>
+                    </select>
+                    <label>Select Size Of Grid</label>
+                    <select class="select" id="gridSize">
+                        <option value="10">10x6</option>
+                        <option value="20">20x12</option>
+                        <option value="30">30x18</option>
+                        <option value="40">40x24</option>
+                        <option value="50">50x30</option>
+                    </select>
+                    <button class="startB" id="StartButton">Start Offline Game</button>
+                    <hr class="border">
+                </div>
+                <div class="button2">
+                    <div class="onDiv">
+                        <button class="onlineB" >Play Online</button>
+                        <div class="onlineOP" id="onlineOP">
+                            <button class="CR" >Create room</button>
+                            <button class="JR">Join room</button>
+                        </div>
+                    </div>
+                    <button class="cB">Continue</button>
+                </div>
+            </div>
+        </div>
+        <div class="createMenu" id="createMenu">
+            <div class="onMain">
+                <h1>Create Game</h1>
+                <label>Enter Your Name:</label>
+                <input type="text" class="nameIn" id="name" oninput="filterInput()" maxlength="7">
+                <div class="colorR">
+                    <label class="colorS">Select Your Color:</label>
+                    <button class="color Red" id="colorB">
+                        <div class="circle"></div>
+                    </button>
+                    <div class="listColors" id="listColors">
+                        <button class="color Red" onclick="setcolor('Red');">
+                            <div class="circle"></div>
+                        </button>
+                        <button class="color Blue" onclick="setcolor('Blue');">
+                            <div class="circle"></div>
+                        </button>
+                        <button class="color Green" onclick="setcolor('Green')">
+                            <div class="circle"></div>
+                        </button>
+                        <button class="color White" onclick="setcolor('White');">
+                            <div class="circle"></div>
+                        </button>
+                        <button class="color Pink" onclick="setcolor('Pink');">
+                            <div class="circle"></div>
+                        </button>
+                    </div>
+                </div>
+                <button class="startB" onclick="createGame()">Start Game</button>
+            </div>
+        </div>
+        <div class="joinMenu" id="joinMenu">
+            <div class="onMain">
+                <h1>Join Game</h1>
+                <label>enter Room Code</label>
+                <input type="text" class="nameIn" id="roomCode">
+                <button class="JR" onclick="joinRoom()">Join room</button>
+            </div>
+        </div>
+    </body>
+    <script>
+        document.body.addEventListener('click', function(event) {
+            var onlineOP = document.getElementById('onlineOP');
+            if(event.target.classList.contains('onlineB')){
+                onlineOP.classList.toggle('showIt');
+            }else{
+                onlineOP.classList.remove('showIt');
+            }
+            if(event.target.classList.contains('CR')){
+                document.getElementById('createMenu').classList.add('showIt');
+            }
+            if(event.target.classList.contains('createMenu')){
+                if(document.getElementById('listColors').classList.contains('showIt')){
+                    document.getElementById('listColors').classList.remove('showIt')
+                }else{
+                    document.getElementById('createMenu').classList.remove('showIt');
+                }
+            }
+            if(event.target.classList.contains('color') || event.target.classList.contains('circle')){
+                document.getElementById('listColors').classList.toggle('showIt');
+            }
+
+            if(event.target.classList.contains('JR')){
+                document.getElementById('joinMenu').classList.add('showIt');
+            }
+            if(event.target.classList.contains('joinMenu')){
+                document.getElementById('joinMenu').classList.remove('showIt');
+            }
+        });
+    </script>
+    <script src="script.js"></script>
+    <script src="UI.js"></script>
 </html>
