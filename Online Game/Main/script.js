@@ -42,8 +42,8 @@ function draw(){
     whoWon();
     if(!isRun && some){
         let k = 0;
+        let x = player;
         while (true && k<50) {
-            let x = player;
             if(RemPlayers[(x+1)%(nPlayers)] == 1){
                 if(player == myID){
                     gameD.child('player').set((x+1)%(nPlayers));
