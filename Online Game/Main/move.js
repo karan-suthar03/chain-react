@@ -33,7 +33,7 @@ class Move {
         if (size/2 + margin + (this.j * size) - this.position[1] < -size) {
             return true;
         } else {
-            this.position[1] += size/25;
+            this.position[1] += size/25*deltaTime/16;
             return false;
         }
     }
@@ -42,7 +42,7 @@ class Move {
         if (size/2 + margin2 + (this.i * size) - this.position[0] > size) {
             return true;
         } else {
-            this.position[0] -= size/25;
+            this.position[0] -= size/25*deltaTime/16;
             return false;
         }
     }
@@ -51,7 +51,7 @@ class Move {
         if (size/2 + margin2 + (this.i * size) - this.position[0] < -size) {
             return true;
         } else {
-            this.position[0] += size/25;
+            this.position[0] += size/25*deltaTime/16;
             return false;
         }
     }
