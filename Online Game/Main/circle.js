@@ -23,19 +23,19 @@ class Gola{
         fill(Pcolors[p][0],Pcolors[p][1],Pcolors[p][2]);
         push();
         translate(size/2+margin2+(this.i*size), size/2+margin+(this.j*size));
-        rotate(this.init = this.init+0.05);
-        circle(size/30,size/30,size/2);
-        circle(size/20,size/20+size*4/15,size/2);
+        rotate(this.init = this.init+0.02*deltaTime/16);
+        circle(0,size/2/3,size/2);
+        circle(0,-size/2/3,size/2);
         pop();
     }
     three(p){
         fill(Pcolors[p][0],Pcolors[p][1],Pcolors[p][2]);
         push();
         translate(size/2+margin2+(this.i*size), size/2+margin+(this.j*size));
-        rotate(this.init = this.init+0.05);
-        circle(size/15,size/15,size/2);
-        circle(size/15,size/15+size*4/15,size/2);
-        circle(size/15+size*4/15,size/15+size*3/15,size/2);
+        rotate(this.init = this.init+0.02*deltaTime/16);
+        circle( size/2/3*-0.5,size/2/3*0.866,size/2);
+        circle( size/2/3*-0.5,size/2/3*(-0.866),size/2);
+        circle( size/2/3,size/2/3*0.1,size/2);
         pop();
     }
 }
