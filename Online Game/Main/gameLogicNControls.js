@@ -28,7 +28,6 @@ function check(){
         gameD.child('matrix').set(matrix).then(()=>{
             mat = true;
         })
-        console.log(count++);
     }
     for(i= 0 ;i<cols;i++){
         for(j = 0;j<rows;j++){
