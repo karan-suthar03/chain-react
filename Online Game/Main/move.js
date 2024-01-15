@@ -24,7 +24,7 @@ class Move {
         if (size/2 + margin + (this.j * size) - this.position[1] > size) {
             return true;
         } else {
-            this.position[1] -= size/25;
+            this.position[1] -= size/25*deltaTime/16;
             return false;
         }
     }
