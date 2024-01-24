@@ -1,0 +1,256 @@
+body{
+    display: grid;
+    grid-template-columns: 0fr 0fr 1fr;
+    font-family: Arial, sans-serif;
+    margin: 0px;
+}
+.menuSection{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f2f2;
+    height: 100vh;
+    box-shadow: inset 0px 0px 10px rgb(0,0,0,0.4);
+}
+.main{
+    background-color: white;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.2);
+    border-radius: 10px;
+}
+select{
+    display: block;
+    width: 200px;
+    padding: 10px ;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    font-size: 17px;
+    border-color: lightgray;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.4);
+    cursor: pointer;
+    transition: all 0.5s;
+}
+select:hover{
+    box-shadow: 0px 0px 50px rgb(255,255,255,0);
+}
+label{
+    display: block;
+    font-size: 16px;
+}
+.startB{
+    font-size: large;
+    color: white;
+    border: 0px;
+    width: max-content;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor:pointer;
+    transition: all 0.5s;
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.4);
+}
+.startB:hover{
+    box-shadow: 0px 0px 50px rgb(255,255,255,0);
+}
+.startB{
+    margin-top: -3px;
+    background-color: #4caf50;
+}
+.startB:hover{
+    background-color: #429c43;
+}
+.startB.disabled{
+    font-size: large;
+    color: white;
+    border: 0px;
+    width: max-content;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor:pointer;
+    transition: all 0.5s;
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.4);
+    background-color: #424642;
+}
+.Gcanvas{
+    height: 100vh;
+}
+.players{
+    width: max-content;
+    padding: 20px;
+}
+.playerC{
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.4);
+    height: fit-content;
+    width: 87px;
+    height: 87px;
+    border-radius: 20%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.color{
+    position: sticky;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.4);
+    border-radius: 20%;
+    margin: 0px 10px;
+    cursor: pointer;
+    transition: all 0.5s;
+    margin-bottom: 5px;
+    background-color: white;
+    border: 0px;
+    height: 55px;
+}
+.color:hover{
+    box-shadow: 0px 0px 50px rgb(255,255,255,0);
+}
+.color.red{
+    background-color: red;
+}
+.color.green{
+    background-color: rgb(0, 255, 0);
+}
+.color.blue{
+    background-color: blue;
+}
+.color.white{
+    background-color: white;
+}
+.color.pink{
+    background-color: rgb(255, 125, 125);
+}
+.circle{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+.Red {
+    background-color: red;
+}
+.Blue {
+    background-color: blue;
+}
+.Green {
+    background-color: rgb(0,255,0);
+}
+.White {
+    background-color: white;
+}
+.Pink{
+    background-color: rgb(255, 125, 125);
+}
+.playerN{
+    margin-bottom: 10px;
+}
+.joinMenu{
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    opacity: 0%;
+    position: absolute;
+    background-color: rgb(0,0,0,0);
+    width: 0%;
+    height: 0%;
+    backdrop-filter: blur(0px);
+    transition: all 0.5s;
+}
+.joinMenu.showIt{
+    backdrop-filter: blur(4px);
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    opacity: 100%;
+    left: 0%;
+}
+.onMain{
+    background-color: white;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0px 0px 200px rgb(0,0,0,1);
+    border-radius: 10px;
+    transition: all 1s;
+}
+.nameIn{
+    cursor: text;
+    border: 0px;
+    display: block;
+    width: 100%;
+    padding: 10px ;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    font-size: 17px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.4);
+    transition: all 0.5s;
+}
+.nameIn:hover{
+    box-shadow: 0px 0px 4px rgb(0,0,0,0.2);
+}
+.listColors{
+    position: absolute;
+    padding: 0px;
+    flex-direction: row;
+    display: flex;
+    border-radius: 20px;
+    backdrop-filter: blur(0px);
+    box-shadow: 0px 0px 0px rgb(0,0,0,0);
+    overflow: hidden;
+    top: 50px;
+    width: 0px;
+    height: 0px;
+    left: 171px;
+    transition: all 0.5s;
+}
+.listColors.showIt{
+    padding: 15px 10px 10px 10px;
+    width: 370px;
+    height: 58px;
+    left: 0px;
+    top: 55px;
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.4);
+    backdrop-filter: blur(4px);
+}
+.colorR{
+    margin-top: -10px;
+    display: flex;
+    position: sticky;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+@keyframes shake {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+      transform: translateX(-10px);
+    }
+    20%, 40%, 60%, 80% {
+      transform: translateX(10px);
+    }
+}
+.shake{
+    box-shadow: 0px 0px 50px rgb(255,0,0,1);
+    animation: shake 1s ease-in-out;
+}
+.colors{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: black solid 1px;
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.4);
+    transition: all 0.5s;
+    margin-top: 17px;
+    margin-bottom: 5px;
+}
+.readyyy{
+    background-color: #4caf50;
+}
