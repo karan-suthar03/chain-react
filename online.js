@@ -50,7 +50,7 @@ function joinRoom(){
     }
     database.ref(roomcode.value).once('value').then((snapshot)=>{
         if(snapshot.exists()){
-            if(snapshot.val().start === 0){kk
+            if(snapshot.val().start === 0){
                 localStorage.setItem('roomD',JSON.stringify({roomCode:roomcode.value,myId:-1,started:0}));
                 window.location.href = 'OnlineGame/index.html';
             }else{
