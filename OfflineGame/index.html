@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <title>Chain Reaction Game</title>
+    <style>
+        html,body{
+            display: flex;
+            height: 100%;
+            margin: 0;
+            justify-content: center;
+        }
+        .canvas-Container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            width: 100vw;
+        }
+        .canvas-class{
+            width: auto;
+            display: flex;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="canvas-Container" id="canvas-Container">
+</div>
+</body>
+<script src="gameConfig.js"></script>
+<script src="../GameFiles/circle.js"></script>
+<script src="../GameFiles/move.js"></script>
+<script src="../GameFiles/utils.js"></script>
+<script src="../GameFiles/gameLogic.js"></script>
+<script src="controls.js"></script>
+<script src="script.js"></script>
+</html>

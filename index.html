@@ -1,0 +1,97 @@
+<html lang="eng">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+    <script src="firebase/firebaseConfig.js"></script>
+    <title>chain reaction online</title>
+</head>
+<body>
+<div class="CanvasContainer" id="CanvasContainer">
+</div>
+<div class="menuSection">
+    <div class="main">
+        <div class="img-container">
+            <img class="pic" src="logo.png" alt="">
+        </div>
+        <div>
+            <label>Select Number Of Players</label>
+            <select class="select" id="players">
+                <option value="2">Two Players</option>
+                <option value="3">three Players</option>
+                <option value="4">four Players</option>
+                <option value="5">five Players</option>
+            </select>
+            <label>Select Size Of Grid</label>
+            <select class="select" id="gridSize">
+                <option value="10">10x6</option>
+                <option value="12">12x7</option>
+                <option value="15">15x9</option>
+                <option value="18">18x10</option>
+                <option value="20">20x12</option>
+                <option value="25">25x15</option>
+                <option value="30">30x18</option>
+                <option value="35">35x21</option>
+            </select>
+            <button class="startB" id="StartButton">Start Offline Game</button>
+            <hr class="border">
+        </div>
+        <div class="button2">
+            <div class="onDiv">
+                <button class="onlineB" >Play Online</button>
+                <div class="onlineOP" id="onlineOP">
+                    <button class="CR" >Create room</button>
+                    <button class="JR">Join room</button>
+                </div>
+            </div>
+            <button class="cB">Continue</button>
+        </div>
+    </div>
+</div>
+<div class="createMenu" id="createMenu">
+    <div class="onMain">
+        <h1>Create Game</h1>
+        <label>Enter Your Name:</label>
+        <input type="text" class="nameIn" id="name" oninput="filterInput()" maxlength="7">
+        <div class="colorR">
+            <label class="colorS">Select Your Color:</label>
+            <button class="color Red" id="colorB">
+                <div class="circle"></div>
+            </button>
+            <div class="listColors" id="listColors">
+                <button class="color Red" onclick="setcolor('Red');">
+                    <div class="circle"></div>
+                </button>
+                <button class="color Blue" onclick="setcolor('Blue');">
+                    <div class="circle"></div>
+                </button>
+                <button class="color Green" onclick="setcolor('Green')">
+                    <div class="circle"></div>
+                </button>
+                <button class="color White" onclick="setcolor('White');">
+                    <div class="circle"></div>
+                </button>
+                <button class="color Pink" onclick="setcolor('Pink');">
+                    <div class="circle"></div>
+                </button>
+            </div>
+        </div>
+        <button class="startB" onclick="createGame()">Start Game</button>
+    </div>
+</div>
+<div class="joinMenu" id="joinMenu">
+    <div class="onMain">
+        <h1>Join Game</h1>
+        <label>enter Room Code</label>
+        <input type="text" class="nameIn" id="roomCode">
+        <button class="JR" onclick="joinRoom()">Join room</button>
+    </div>
+</div>
+</body>
+<script src="UiControls.js"></script>
+<script src="prevCanvas.js"></script>
+<script src="offline.js"></script>
+<script src="online.js"></script>
+</html>
