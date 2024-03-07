@@ -61,7 +61,7 @@ button:hover{
     background-color: #429c43;
 }
 .Gcanvas{
-    height: 100%;
+    height: 100vh;
 }
 .onlineB{
     background-color: #5b4caf;
