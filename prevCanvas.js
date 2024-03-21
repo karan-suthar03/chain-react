@@ -12,6 +12,7 @@ gridSize.addEventListener("change", function() {
 
 function setup(){
     const canvas = createCanvas(400, 600);
+    pixelDensity(1);
     canvas.class('Gcanvas');
     canvas.elt.removeAttribute('style');
     canvas.parent("CanvasContainer");
