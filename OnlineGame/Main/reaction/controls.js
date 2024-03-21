@@ -64,6 +64,7 @@ function whoWon(){
         if(playeds === 1){
             for(let i = 0;i<nPlayers;i++){
                 if(RemPlayers[i] === 1){
+                    noLoop();
                     window.location.href = '../../index.html';
                 }
             }
