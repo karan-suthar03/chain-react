@@ -54,6 +54,7 @@ function whoWon(){
             for(let i = 0;i<nPlayers;i++){
                 if(RemPlayers[i] === 1){
                     noLoop();
+                    localStorage.removeItem('gameData');
                     window.location.href = '../index.html';
                 }
             }

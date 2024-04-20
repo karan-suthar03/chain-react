@@ -141,7 +141,7 @@ function startGame(){
             matrix[i][j] = {player:-1,balls:0};
         }
     }
-    data.child('game').set({player:0,played:0,RemPlayers:RemPlayers,grid:gridSize.value,matrix:matrix}).then(()=>{
+    data.child('game').set({player:0,played:0,RemPlayers:RemPlayers,grid:gridSize.value,matrix:matrix,ended:false}).then(()=>{
         data.child('start').set(1).then(()=>{
             window.location.href = 'Main/index.html';
         });

@@ -65,7 +65,9 @@ function whoWon(){
             for(let i = 0;i<nPlayers;i++){
                 if(RemPlayers[i] === 1){
                     noLoop();
-                    window.location.href = '../../index.html';
+                    gameD.child('ended').set(true).then(()=>{
+                        window.location.href = '../../index.html';
+                    });
                 }
             }
         }

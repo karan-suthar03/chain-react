@@ -5,6 +5,11 @@ document.body.addEventListener('click', function(event) {
     }else{
         onlineOP.classList.remove('showIt');
     }
+    if(event.target.classList.contains('cB')){
+        document.getElementById('contOP').classList.toggle('showIt');
+    }else if(!(event.target.classList.contains('contOP') || event.target.classList.contains('POn') || event.target.classList.contains('POf'))){
+        document.getElementById('contOP').classList.remove('showIt');
+    }
     if(event.target.classList.contains('CR')){
         document.getElementById('createMenu').classList.add('showIt');
     }

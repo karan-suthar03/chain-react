@@ -43,10 +43,16 @@
                 <button class="onlineB" >Play Online</button>
                 <div class="onlineOP" id="onlineOP">
                     <button class="CR" >Create room</button>
-                    <button class="JR">Join room</button>
+                    <button class="JR" >Join room</button>
                 </div>
             </div>
-            <button class="cB" onclick="window.location.href = 'OnlineGame/index.html'">Continue</button>
+            <div class="onDiv">
+                <button class="cB"  >Continue</button>
+                <div class="contOP" id="contOP">
+                    <button class="POn" onclick="startPreviousOnlineGame(this)">Previous Online</button>
+                    <button class="POf" onclick="startPreviousOfflineGame(this)">Previous Offline</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

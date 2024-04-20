@@ -21,3 +21,15 @@ function startGame(){
 function setData(value) {
     localStorage.setItem('gameData',encodeURIComponent(JSON.stringify(value)));
 }
+
+function startPreviousOfflineGame(B){
+    B.classList.remove('shake');
+    gameData = JSON.parse(decodeURIComponent(localStorage.getItem('gameData')));
+    if(gameData === null){
+        setTimeout(function() {
+            B.classList.add('shake');
+        }, 1);
+        return;
+    }
+    window.location.href = 'OfflineGame/index.html';
+}

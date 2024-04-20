@@ -61,3 +61,23 @@ function joinRoom(){
         }
     })
 }
+
+function startPreviousOnlineGame(B){
+    B.classList.remove('shake');
+    let roomD = JSON.parse(localStorage.getItem('roomD'));
+    if(roomD === null){
+        return;
+    }
+    let room = roomD.roomCode;
+    database.ref(room).once('value').then((snapshot)=>{
+        if(!snapshot.exists()){
+            B.classList.add('shake');
+            return;
+        }
+        if(snapshot.val().game.ended){
+            B.classList.add('shake');
+            return;
+        }
+        window.location.href = 'OnlineGame/main/index.html';
+    });
+}
