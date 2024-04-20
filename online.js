@@ -78,6 +78,6 @@ function startPreviousOnlineGame(B){
             B.classList.add('shake');
             return;
         }
-        window.location.href = 'OnlineGame/main/index.html';
+        window.location.href = 'https://karan-suthar03.github.io/chain-react/OnlineGame/Main/index.html';
     });
 }
