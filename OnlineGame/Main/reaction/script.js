@@ -38,3 +38,14 @@ function draw(){
         some = false;
     }
 }
+
+document.addEventListener('DOMContentLoaded', (event) => {
+      window.history.pushState(null, null, window.location.href);
+      window.addEventListener('popstate', function(event) {
+            window.history.pushState(null, null, window.location.href);
+      });
+
+      window.onbeforeunload = function() {
+            return "Are you sure you want to leave this page?";
+      };
+});
