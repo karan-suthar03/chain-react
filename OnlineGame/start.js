@@ -1,14 +1,19 @@
 const RoomD = JSON.parse(localStorage.getItem('roomD'));
-if(RoomD.myId === -1){
+if (RoomD.started === 1) {
+    window.location.href = "Main/index.html";
+}
+
+if (RoomD.myId === -1) {
     document.getElementById('joinMenu').classList.add('showIt');
 }
+
 const Room = RoomD.roomCode;
 const RoomC = document.getElementById('roomCode');
 RoomC.innerText = Room;
 let Dcolor = 'Red';
 let id;
 
-function showColors(colors){
+function showColors(colors) {
     const list = document.getElementById('listColors');
     list.innerHTML = "";
     if (!colors.includes('Red')) {
@@ -32,18 +37,19 @@ function showColors(colors){
         Dcolor = 'Pink';
     }
     const colorB = document.getElementById('now');
-    colorB.classList = ['circle '+Dcolor];
+    colorB.classList = ['circle ' + Dcolor];
 }
+
 function addPlayers(data) {
     let parent = document.getElementById('players');
     let colors = [];
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
-    if(JSON.parse(localStorage.getItem('roomD')).myId !== -1){
-        if(data[JSON.parse(localStorage.getItem('roomD')).myId].isReady){
+    if (JSON.parse(localStorage.getItem('roomD')).myId !== -1) {
+        if (data[JSON.parse(localStorage.getItem('roomD')).myId].isReady) {
             let b = document.getElementById('ready1');
-            b.classList = ['startB'+' disabled']
+            b.classList = ['startB' + ' disabled']
             b.innerText = 'waiting';
             b.disabled = true;
         }
@@ -59,18 +65,17 @@ function addPlayers(data) {
         cir.classList.add(data[i].color);
         name.classList.add('playerN');
         div.classList.add('playerC');
-        if(data[i].isReady){
+        if (data[i].isReady) {
             div.classList.add('readyyy');
-        }else{
+        } else {
             allReady = false;
         }
         name.innerText = data[i].Id;
         div.appendChild(cir);
         div.appendChild(name);
         parent.appendChild(div);
-
     }
-    if(allReady && data.length > 1){
+    if (allReady && data.length > 1) {
         startGame();
     }
     showColors(colors);
@@ -78,21 +83,21 @@ function addPlayers(data) {
 
 const data = database.ref(Room);
 let players;
-data.child('player').on('value',(snapshot)=>{
-    data.child('start').once('value',(snapshot1)=>{
-        if(snapshot1.val === 1){
-            window.location.href = "../index.html"
-        }else{
+data.child('player').on('value', (snapshot) => {
+    data.child('start').once('value', (snapshot1) => {
+        if (snapshot1.val() === 1) {
+            localStorage.setItem('roomD', JSON.stringify({ ...RoomD, started: 1 }));
+            window.location.href = "Main/index.html";
+        } else {
             players = snapshot.val();
             addPlayers(players);
         }
-    })
-
+    });
 });
 
-function setcolor(color){
+function setcolor(color) {
     const colorB = document.getElementById('now');
-    colorB.classList = ['circle '+color];
+    colorB.classList = ['circle ' + color];
     Dcolor = color;
 }
 
@@ -104,45 +109,45 @@ function filterInput() {
     NameIn.value = NameIn.value.replace(/\s/g, '');
 }
 
-function invalidName(){
+function invalidName() {
     NameIn = document.getElementById('name');
     NameIn.classList.add('shake');
 }
 
-function JoinB(){
+function JoinB() {
     NameIn = document.getElementById('name');
-    if(NameIn.value == null || NameIn.value === '' || NameIn.value === undefined || NameIn.value.length < 2 || NameIn.value.length > 7){
+    if (NameIn.value == null || NameIn.value === '' || NameIn.value === undefined || NameIn.value.length < 2 || NameIn.value.length > 7) {
         invalidName();
         return;
     }
-    players.push({Id:NameIn.value,color:Dcolor,isReady:false})
-    data.child('player').set(players).then(()=>{
-        console.log(players.length-1)
-        localStorage.setItem('roomD',JSON.stringify({roomCode:Room,myId:players.length-1,started:0}));
+    players.push({ Id: NameIn.value, color: Dcolor, isReady: false })
+    data.child('player').set(players).then(() => {
+        console.log(players.length - 1)
+        localStorage.setItem('roomD', JSON.stringify({ roomCode: Room, myId: players.length - 1, started: 0 }));
         document.getElementById('joinMenu').classList.remove('showIt')
     })
 }
 
-function ready(){
+function ready() {
     players[JSON.parse(localStorage.getItem('roomD')).myId].isReady = true;
     data.child('player').set(players);
 }
 
-function startGame(){
-    localStorage.setItem('roomD',JSON.stringify({roomCode:Room,myId:JSON.parse(localStorage.getItem('roomD')).myId,started:0}));
+function startGame() {
+    localStorage.setItem('roomD', JSON.stringify({ roomCode: Room, myId: JSON.parse(localStorage.getItem('roomD')).myId, started: 1 }));
     const RemPlayers = [];
-    for(let i = 0;i<parseInt(players.length);i++){
+    for (let i = 0; i < parseInt(players.length); i++) {
         RemPlayers[i] = 1;
     }
-    let matrix= [];
-    for(let i= 0;i<Math.floor(gridSize.value*0.6);i++){
+    let matrix = [];
+    for (let i = 0; i < Math.floor(gridSize.value * 0.6); i++) {
         matrix[i] = [];
-        for(let j= 0;j<gridSize.value;j++){
-            matrix[i][j] = {player:-1,balls:0};
+        for (let j = 0; j < gridSize.value; j++) {
+            matrix[i][j] = { player: -1, balls: 0 };
         }
     }
-    data.child('game').set({player:0,played:0,RemPlayers:RemPlayers,grid:gridSize.value,matrix:matrix,ended:false}).then(()=>{
-        data.child('start').set(1).then(()=>{
+    data.child('game').set({ player: 0, played: 0, RemPlayers: RemPlayers, grid: gridSize.value, matrix: matrix, ended: false }).then(() => {
+        data.child('start').set(1).then(() => {
             window.location.href = 'Main/index.html';
         });
     })
